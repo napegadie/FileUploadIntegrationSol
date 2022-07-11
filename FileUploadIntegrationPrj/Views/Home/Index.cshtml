@@ -1,0 +1,85 @@
+﻿
+@using FileUploadIntegrationPrj.Models
+@addTagHelper *, AuthoringTagHelpers
+@model List<Book>
+@{
+    ViewBag.Title = "Book List";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1 class="display-4">List of Book</h1>
+            <p class="lead">This is the list of all of the book Author currently available for this project.</p>
+        </div>
+    </div>
+</div>
+
+<br />
+ <br />
+
+<a asp-controller="Home" asp-action="Add" class="btn btn-sm btn-success" style="width: 100px">
+    <i class="fa-solid fa-plus"></i> Add Book</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+
+ <br />
+ <br />
+
+<form asp-controller="Home" asp-action="Index" method="post">
+    <p>
+        Search by Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            @if (Model == null)
+            {
+                <div class="alert alert-info">Loading Books...</div>
+            }
+            else
+            {
+                <table class="table table-bordered table-striped" style="width:100%">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Book Cover</th>
+                            <th>Author Name</th>
+                            <th>Genre</th>
+                            <th>DatePublished</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var book in Model)
+                        {
+                            <tr>
+                                <td>@book.BookId</td>
+                                <td><img src="@book.BookLocationPath" style="height: 150px; width: 150px"/></td>
+                                <td>@book.BookAuthor</td>
+                                <td>@book.BookGenre</td>
+                                <td>@book.DatePublished</td>
+                                <td>@book.BookTitle</td>
+                                <td>
+                                    <form asp-action="Delete" asp-route-id="@book.BookId">
+                                        <div class="btn-group btn-group-sm">
+                                            <a asp-action="Update" asp-route-id="@book.BookId" class="btn btn-warning">
+                                                <i class="fas fa-edit"></i> </a> 
+                                            <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Are you sure to delete this record?')">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
+                                        </div>
+                                    </form>
+                                 </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>

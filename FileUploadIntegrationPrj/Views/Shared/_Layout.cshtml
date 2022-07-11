@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FileUploader</title>
+    <script src="https://kit.fontawesome.com/79e4c2a323.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FileUploader.styles.css" asp-append-version="true" />
+</head>
+<body>
+        <!-- Header desktop -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-secondary border-bottom box-shadow mb-3 px-5 fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-4 ps-4" asp-area="" asp-controller="Home" asp-action="Index"><span class="text-warning">File</span>Uploader</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navBar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Logo -->
+			@*	<div class="logo">
+					<a href="index.html">
+						<img src="images/icons/logo.png" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+					</a>
+				</div>*@
+            <div class="collapse navbar-collapse me-4 pe-4" id="navBar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- carousel post -->
+    <section class="my-4">
+    <div class="container">
+        <div class="card shadow">
+            <div class="overflow-hidden">
+                <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="carouselSlide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselSlide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselSlide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselSlide" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/niklas-ohlrogge-j-0olYcaihg-unsplash.jpg" alt="" class="w-100 d-block">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/fabio-oyXis2kALVg-unsplash.jpg" alt="" class="w-100 d-block">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/david-sjunnesson-_DxXHpWsvJw-unsplash.jpg" alt="" class="w-100 d-block">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlide" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselSlide" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- carousel post -->
+    <div class="container">
+        <main role="main" class="display-8 mb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-light">
+       <div class="container text-center">
+            <p class="mb-0 py-3 fs-5">
+                &copy; 2022 - FileUploader - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </p>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

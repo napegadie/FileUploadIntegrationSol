@@ -1,0 +1,14 @@
+﻿<form method="post" enctype="multipart/form-data" asp-controller="Book" asp-action="Upload">
+                <div class="form-group">
+                    <div class="mb-3">
+                        <input class="form-control" name="files" type="file"/>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input asp-controller="Book" asp-action="Add" type="submit" value="Upload" class="btn btn-danger w-100" />
+                            </div>
+                        </div>
+                </div>
+            </form>
